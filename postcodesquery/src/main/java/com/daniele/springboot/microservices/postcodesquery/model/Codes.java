@@ -14,6 +14,21 @@ public class Codes {
 	public Codes() {
 		
 	}
+	
+	public Codes(String admin_district, String admin_country, String admin_ward, String parish,
+			String parliamentary_consitutency, String ccg, String ced, String nuts) {
+		
+		this.admin_district = admin_district;
+		this.admin_country = admin_country;
+		this.admin_ward = admin_ward;
+		this.parish = parish;
+		this.parliamentary_consitutency = parliamentary_consitutency;
+		this.ccg = ccg;
+		this.ced = ced;
+		this.nuts = nuts;
+	}
+
+
 
 	public String getAdmin_district() {
 		return admin_district;

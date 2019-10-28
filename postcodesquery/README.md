@@ -47,7 +47,7 @@ git clone https://github.com/Danco90/fs-conding-test.git
 ## unit test 
 	mvn test
 
-## trun API executable
+## run API executable
 
 Test the Application by running the executable in a terminal :
 

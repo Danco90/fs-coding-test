@@ -1,6 +1,13 @@
 package com.daniele.springboot.microservices.postcodesquery.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="postcodes")
 public class Postcode {
+	
+	@Id
+	private String id;
 	
 	private String postcode;
 	private Integer quality;
@@ -17,6 +24,7 @@ public class Postcode {
 	private String msoa;
 	private String incode;
 	private String outcode;
+	
 	private String parliamentary_constituency;
 	private String admin_district;
 	private String parish;
@@ -32,6 +40,41 @@ public class Postcode {
 		
 	}
 	
+	public Postcode(String postcode, Integer quality, Integer eastings, Integer northings, String country,
+			String nhs_ha, Double longitude, Double latitude, String european_electoral_region,
+			String primary_care_trust, String region, String lsoa, String msoa, String incode, String outcode,
+			String parliamentary_constituency, String admin_district, String parish, String admin_country,
+			String admin_ward, String ced, String ccg, String nuts, Codes codes) {
+		
+		this(postcode, country, region);
+		
+		this.quality = quality;
+		this.eastings = eastings;
+		this.northings = northings;
+		
+		this.nhs_ha = nhs_ha;
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.european_electoral_region = european_electoral_region;
+		this.primary_care_trust = primary_care_trust;
+		
+		this.lsoa = lsoa;
+		this.msoa = msoa;
+		this.incode = incode;
+		this.outcode = outcode;
+		this.parliamentary_constituency = parliamentary_constituency;
+		this.admin_district = admin_district;
+		this.parish = parish;
+		this.admin_country = admin_country;
+		this.admin_ward = admin_ward;
+		this.ced = ced;
+		this.ccg = ccg;
+		this.nuts = nuts;
+		this.codes = codes;
+	}
+
+
+
 	public Postcode(String postcode, String country, String region) {
 		super();
 		this.postcode = postcode;
@@ -40,7 +83,10 @@ public class Postcode {
 	}
 
 
-
+	public String getId() {
+		return id;
+	}
+	
 	public String getPostcode() {
 		return postcode;
 	}

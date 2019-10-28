@@ -5,12 +5,9 @@ import java.util.List;
 public class NearestPostcodesResponseBean {
 	
 	private Integer status;
-	
-	private List<Postcode> result;
+//	private List<Postcode> result;
+	private List<PostcodesResponseBean> result;
 
-//	private List<PostcodeInfo> postcodes;
-	
-	
 	public NearestPostcodesResponseBean() {
 	}
 
@@ -22,24 +19,13 @@ public class NearestPostcodesResponseBean {
 		this.status = status;
 	}
 
-	public List<Postcode> getResult() {
+	public List<PostcodesResponseBean> getResult() {
 		return result;
 	}
 
-	public void setResult(List<Postcode> result) {
+	public void setResult(List<PostcodesResponseBean> result) {
 		this.result = result;
 	}
 
-
-//	public List<PostcodeInfo> getPostcodes() {
-//		return postcodes;
-//	}
-//
-//
-//	public void setPostcodes(List<PostcodeInfo> postcodes) {
-//		this.postcodes = postcodes;
-//	}
-
-	
 	
 }

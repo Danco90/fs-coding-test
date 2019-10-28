@@ -7,6 +7,7 @@ import com.daniele.springboot.microservices.postcodesquery.model.NearestPostcode
 import com.daniele.springboot.microservices.postcodesquery.model.Postcode;
 import com.daniele.springboot.microservices.postcodesquery.model.PostcodeInfo;
 import com.daniele.springboot.microservices.postcodesquery.model.PostcodeResponseBean;
+import com.daniele.springboot.microservices.postcodesquery.model.PostcodesResponseBean;
 
 public class Mapper {
 	
@@ -22,8 +23,8 @@ public class Mapper {
 	
 	public static List<PostcodeInfo> mapToNearestPostcodes(NearestPostcodesResponseBean input){
 		List<PostcodeInfo> outList = new ArrayList<PostcodeInfo>();
-		List<Postcode> resultList = input.getResult();
-		for(Postcode postcode : resultList) {
+		List<PostcodesResponseBean> resultList = input.getResult();
+		for(PostcodesResponseBean postcode : resultList) {
 			PostcodeInfo out = new PostcodeInfo();
 			out.setPostcode(postcode.getPostcode());
 			out.setCountry(postcode.getCountry());

@@ -38,37 +38,37 @@ public class PostcodesQueryApplication {
         return builder.build();
     }
 
-    @Bean
-    @ConditionalOnProperty(prefix = "job.autorun", name = "enabled", havingValue = "true", matchIfMissing = true)
-    public CommandLineRunner run(PostcodesQueryService postcodesQueryService) {
-       	logger.debug("postcodes query  starts");
-        return args -> {
-	    		
-        		try {
-	        		final String postcode = args.length > 0 ? args[0] : "" ;
-		    		logger.info("input arg : postcode='{}'", postcode);
-		    		
-		    		postcodesQueryService.validatePostCode(postcode);
-	
-		    		PostcodeInfo result = postcodesQueryService.getPostcodeInfo(postcode);
-		    		logger.info("postcode:  {}, country='{}', region='{}'", result.getPostcode(), result.getCountry(), result.getRegion());
-		    		 
-		    		List<PostcodeInfo> resultList = postcodesQueryService.getAllTheNearestPostcodesInfo(postcode);
-		    	     
-		    		String nearestList = resultList.stream()
-		    		        .map( n -> n.toString() )
-		    		        .collect( Collectors.joining( "," ) );
-		    		
-		    		logger.info("nearest postcodes:  {}", nearestList);
-		    		
-        		} catch (InvalidInputException ex) {
-        			logger.error("INPUT ERROR, cause ", ex);
-        		} catch (RemoteResourceReadTimeoutException ex) {
-        			logger.error("API ERROR, cause ", ex);
-        		} finally {
-        			logger.debug("postcodes query  ends");
-        		}
-        };
-    }
+//    @Bean
+//    @ConditionalOnProperty(prefix = "job.autorun", name = "enabled", havingValue = "true", matchIfMissing = true)
+//    public CommandLineRunner run(PostcodesQueryService postcodesQueryService) {
+//       	logger.debug("postcodes query  starts");
+//        return args -> {
+//	    		
+//        		try {
+//	        		final String postcode = args.length > 0 ? args[0] : "" ;
+//		    		logger.info("input arg : postcode='{}'", postcode);
+//		    		
+//		    		postcodesQueryService.validatePostCode(postcode);
+//	
+//		    		PostcodeInfo result = postcodesQueryService.getPostcodeInfo(postcode);
+//		    		logger.info("postcode:  {}, country='{}', region='{}'", result.getPostcode(), result.getCountry(), result.getRegion());
+//		    		 
+//		    		List<PostcodeInfo> resultList = postcodesQueryService.getAllTheNearestPostcodesInfo(postcode);
+//		    	     
+//		    		String nearestList = resultList.stream()
+//		    		        .map( n -> n.toString() )
+//		    		        .collect( Collectors.joining( "," ) );
+//		    		
+//		    		logger.info("nearest postcodes:  {}", nearestList);
+//		    		
+//        		} catch (InvalidInputException ex) {
+//        			logger.error("INPUT ERROR, cause ", ex);
+//        		} catch (RemoteResourceReadTimeoutException ex) {
+//        			logger.error("API ERROR, cause ", ex);
+//        		} finally {
+//        			logger.debug("postcodes query  ends");
+//        		}
+//        };
+//    }
 
 }
