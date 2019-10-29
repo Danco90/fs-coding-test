@@ -33,10 +33,10 @@ public class PostcodesQueryApplication {
 		SpringApplication.run(PostcodesQueryApplication.class, args);
 	}
 
-	@Bean
-    public RestTemplate restTemplate(RestTemplateBuilder builder) {
-        return builder.build();
-    }
+//	@Bean
+//    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+//        return builder.build();
+//    }
 
 //    @Bean
 //    @ConditionalOnProperty(prefix = "job.autorun", name = "enabled", havingValue = "true", matchIfMissing = true)
